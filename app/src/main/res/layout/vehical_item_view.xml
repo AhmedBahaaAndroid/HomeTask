@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.cardview.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginEnd="24dp"
+    android:background="@android:color/transparent"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/vehiclImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/amu_bubble_mask" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <TextView
+            android:id="@+id/vehicleName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="BMW S5" />
+
+        <TextView
+            android:id="@+id/vehiclePriceLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_top_margin"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/text_margin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/label_text_size"
+            android:text="@string/priceLabel"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/vehicleName"
+            tools:text="@string/priceLabel"
+            android:layout_marginLeft="@dimen/text_margin" />
+        <TextView
+            android:id="@+id/vehiclePrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_top_margin"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/barrier2"
+            app:layout_constraintTop_toBottomOf="@id/vehicleName"
+            tools:text="1000"
+            android:layout_marginLeft="@dimen/text_margin" />
+
+
+        <TextView
+            android:id="@+id/vehicleFuelLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_top_margin"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/text_margin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/label_text_size"
+            android:text="@string/fuelTypeLabel"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/vehiclePrice"
+            tools:text="@string/fuelTypeLabel"
+            android:layout_marginLeft="@dimen/text_margin" />
+
+        <TextView
+            android:id="@+id/vehicleFuel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_top_margin"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/barrier2"
+            app:layout_constraintTop_toBottomOf="@id/vehiclePrice"
+            tools:text="Gasoline"
+            android:layout_marginLeft="@dimen/text_margin" />
+
+        <TextView
+            android:id="@+id/vehicleNoteLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginTop="@dimen/text_top_margin"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/text_margin"
+            tools:text="@string/noteLabel"
+            android:text="@string/noteLabel"
+            android:layout_marginLeft="@dimen/space_margin" />
+
+        <TextView
+            android:id="@+id/vehicleNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_top_margin"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:textSize="@dimen/label_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/text_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrier2"
+            app:layout_constraintTop_toBottomOf="@id/vehicleFuel"
+            tools:text="BMW S5" />
+
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="vehicleFuelLabel,vehiclePriceLabel,vehicleNoteLabel" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+</layout>

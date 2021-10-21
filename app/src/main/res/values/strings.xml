@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HomeTask</string>
+    <string name="Color">"Color:"</string>
+    <string name="fuelTypeLabel">"Fuel Type:"</string>
+    <string name="priceLabel">"Price:"</string>
+    <string name="noteLabel">"Notes:"</string>
+
+</resources>
