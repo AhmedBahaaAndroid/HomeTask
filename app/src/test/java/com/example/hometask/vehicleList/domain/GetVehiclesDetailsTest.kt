@@ -28,7 +28,7 @@ internal class GetVehiclesDetailsTest {
     }
 
     @Test
-    fun `when get vehicle  then vehicle list   is returned with list `() {
+    fun `when get vehicle and vehicle notes  then vehicle list   is returned with list `() {
         Mockito.`when`(vehiclesRepository.getVehicles()).thenReturn(Single.just(falkeVehiclesList))
         Mockito.`when`(vehiclesRepository.getVehiclesNotes())
             .thenReturn(Single.just(fakeVehicleNote))

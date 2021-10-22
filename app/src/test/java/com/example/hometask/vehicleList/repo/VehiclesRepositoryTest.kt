@@ -26,7 +26,7 @@ internal class VehiclesRepositoryTest {
     }
 
     @Test
-    fun `when get vehicle  then vehicle list   is returned with list `() {
+    fun `when get vehicle then vehicle list is returned with list `() {
         Mockito.`when`(vehiclesApi.getVehicles()).thenReturn(Single.just(falkeVehiclesList))
         val actualValue = vehiclesRepository.getVehicles()
         assertNotNull(

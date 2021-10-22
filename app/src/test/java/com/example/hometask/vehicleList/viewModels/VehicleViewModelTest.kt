@@ -31,16 +31,15 @@ class VehicleViewModelTest {
     }
 
     @Test
-    fun `when get vehicle  then vehicle list   is returned with list `() {
+    fun `when get vehicle details  then vehicle list  is returned with all required info `() {
         Assertions.assertEquals(
             fakeVehicleDetails,
             vehicleViewModel.vehiclesList.value
         )
     }
 
-
     @Test
-    fun `when selected vehicle  then vehicle selected   is returned with details `() {
+    fun `when selected vehicle by id then vehicle selected returned with details `() {
         vehicleViewModel.onSelectedVehicle(1)
         Assertions.assertEquals(
             fakeVehicleDetails[0],
