@@ -49,7 +49,7 @@ class VehiclesAdapter(private val clickListener: VehiclesClickListener) :
                 }
                 executePendingBindings()
                 root.setOnClickListener {
-                    clickListener.onClick(position)
+                    clickListener.onClick(item.id)
                 }
             }
         }
@@ -65,8 +65,8 @@ class VehiclesAdapter(private val clickListener: VehiclesClickListener) :
     }
 }
 
-class VehiclesClickListener(val clickListener: (position: Int) -> Unit) {
-    fun onClick(position: Int) = clickListener(position)
+class VehiclesClickListener(val clickListener: (vehicleId: Int) -> Unit) {
+    fun onClick(vehicleId: Int) = clickListener(vehicleId)
 }
 
 class VehiclesDiffCallback : DiffUtil.ItemCallback<VehicleUIModel>() {

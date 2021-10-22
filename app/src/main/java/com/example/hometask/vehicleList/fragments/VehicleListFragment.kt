@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hometask.R
 import com.example.hometask.base.BaseFragment
 import com.example.hometask.databinding.VehicleListFragmentBinding
 import com.example.hometask.vehicleList.adapters.VehiclesAdapter
@@ -18,7 +21,8 @@ class VehicleListFragment : BaseFragment<VehicleViewModel>(VehicleViewModel::cla
     private lateinit var binding: VehicleListFragmentBinding
     private val viewModel by viewModel<VehicleViewModel>()
 
-    private val vehiclesAdapter = VehiclesAdapter(VehiclesClickListener { position ->
+    private val vehiclesAdapter = VehiclesAdapter(VehiclesClickListener { vehicleId ->
+        viewModel.onSelectedVehicle(vehicleId)
     })
 
 
@@ -44,9 +48,21 @@ class VehicleListFragment : BaseFragment<VehicleViewModel>(VehicleViewModel::cla
             itemAnimator = null
         }
 
-
         viewModel.vehiclesList.observe(viewLifecycleOwner, Observer { vehicleDetailsList ->
             vehiclesAdapter.submitList(vehicleDetailsList.map { it.toVehicleUIModel() })
         })
+
+        viewModel.selectedVehicle.observe(viewLifecycleOwner, Observer {
+            if (!it.images.isNullOrEmpty())
+                showVehicleImagesView(it.images)
+        })
+    }
+
+    private fun showVehicleImagesView(imageList: List<String>) {
+        parentFragmentManager.beginTransaction()
+            .replace(
+                R.id.vehicles_containr_frame,
+                VehicleImagesViewerFragment.newInstance(imageList as ArrayList<String>)
+            ).addToBackStack("ImageViewer").commit()
     }
 }

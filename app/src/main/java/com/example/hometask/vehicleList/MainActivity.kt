@@ -20,4 +20,13 @@ class MainActivity : BaseActivity<VehicleViewModel>(VehicleViewModel::class) {
             .commitNow()
         binding.lifecycleOwner = this
     }
+
+    override fun onBackPressed() {
+        val count = supportFragmentManager.backStackEntryCount
+        if (count == 0) {
+            super.onBackPressed()
+        } else {
+            supportFragmentManager.popBackStack()
+        }
+    }
 }

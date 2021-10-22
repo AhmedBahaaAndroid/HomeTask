@@ -17,6 +17,20 @@
             android:paddingBottom="@dimen/space_margin"
             tools:listitem="@layout/vehical_item_view"/>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/vehicles_containr_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ContentDescription" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

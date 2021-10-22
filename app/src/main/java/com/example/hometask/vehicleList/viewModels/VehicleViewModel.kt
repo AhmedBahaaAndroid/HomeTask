@@ -10,6 +10,9 @@ class VehicleViewModel(
     getVehiclesDetails: GetVehiclesDetails
 ) : BaseViewModel() {
 
+    private val _selectedVehicle = MutableLiveData<VehicleDetails>()
+    val selectedVehicle: LiveData<VehicleDetails>
+        get() = _selectedVehicle
     private val _vehiclesList = MutableLiveData<List<VehicleDetails>>()
     val vehiclesList: LiveData<List<VehicleDetails>>
         get() = _vehiclesList
@@ -20,4 +23,9 @@ class VehicleViewModel(
                 _vehiclesList.value = it
             })
     }
+
+    fun onSelectedVehicle(vehicleId: Int) {
+        _selectedVehicle.value = _vehiclesList.value?.find { it.id == vehicleId }
+    }
+
 }
