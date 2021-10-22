@@ -35,6 +35,7 @@ class VehiclesAdapter(private val clickListener: VehiclesClickListener) :
                 Glide.with(this@ViewHolder.itemView.context)
                     .asBitmap()
                     .placeholder(R.drawable.vehicle_placeholder)
+                    .error(R.drawable.no_image_available)
                     .load(item.photo?.first())
                     .into(vehiclImage)
                 vehicleFuel.text = item.fuelType

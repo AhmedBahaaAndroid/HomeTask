@@ -15,8 +15,8 @@ import org.mockito.junit.jupiter.MockitoExtension
 
 @ExtendWith(
     InstantExecutorExtension::class,
-    MockitoExtension::class,
-    TestSchedulerExtension::class
+    TestSchedulerExtension::class,
+    MockitoExtension::class
 )
 class VehicleViewModelTest {
     private lateinit var vehicleViewModel: VehicleViewModel

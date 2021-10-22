@@ -19,7 +19,6 @@ class TestSchedulerExtension : AfterEachCallback, BeforeEachCallback {
     override fun beforeEach(context: ExtensionContext) {
         RxAndroidPlugins.reset()
         RxAndroidPlugins.setInitMainThreadSchedulerHandler(schedulerLazyFunc)
-
         RxJavaPlugins.reset()
         RxJavaPlugins.setIoSchedulerHandler(schedulerFunc)
         RxJavaPlugins.setNewThreadSchedulerHandler(schedulerFunc)
