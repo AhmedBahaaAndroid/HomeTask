@@ -1,11 +1,7 @@
 package com.example.hometask.vehicleList.repo
 
-import com.example.hometask.InstantExecutorExtension
-import com.example.hometask.TestSchedulerExtension
 import com.example.hometask.falkeVehiclesList
 import com.example.hometask.vehicleList.api.VehiclesApi
-import com.example.hometask.vehicleList.api.models.Image
-import com.example.hometask.vehicleList.api.models.RemoteVehicle
 import io.reactivex.rxjava3.core.Single
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
@@ -16,11 +12,7 @@ import org.mockito.Mockito
 import org.mockito.junit.jupiter.MockitoExtension
 
 
-@ExtendWith(
-    InstantExecutorExtension::class,
-    MockitoExtension::class,
-    TestSchedulerExtension::class
-)
+@ExtendWith(MockitoExtension::class)
 internal class VehiclesRepositoryTest {
     private lateinit var vehiclesRepository: VehiclesRepository
 

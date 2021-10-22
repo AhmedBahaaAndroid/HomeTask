@@ -3,11 +3,8 @@ package com.example.hometask.vehicleList.viewModels
 import com.example.hometask.InstantExecutorExtension
 import com.example.hometask.TestSchedulerExtension
 import com.example.hometask.fakeVehicleDetails
-import com.example.hometask.vehicleList.api.VehiclesApi
 import com.example.hometask.vehicleList.domain.GetVehiclesDetails
-import com.example.hometask.vehicleList.repo.VehiclesRepository
 import io.reactivex.rxjava3.core.Single
-import org.junit.Assert.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -38,6 +35,16 @@ class VehicleViewModelTest {
         Assertions.assertEquals(
             fakeVehicleDetails,
             vehicleViewModel.vehiclesList.value
+        )
+    }
+
+
+    @Test
+    fun `when selected vehicle  then vehicle selected   is returned with details `() {
+        vehicleViewModel.onSelectedVehicle(1)
+        Assertions.assertEquals(
+            fakeVehicleDetails[0],
+            vehicleViewModel.selectedVehicle.value
         )
     }
 }

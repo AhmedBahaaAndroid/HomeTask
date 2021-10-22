@@ -22,7 +22,6 @@ package com.example.hometask
 
 import org.mockito.ArgumentCaptor
 import org.mockito.Mockito
-
 /**
  * Returns Mockito.eq() as nullable type to avoid java.lang.IllegalStateException when
  * null is returned.

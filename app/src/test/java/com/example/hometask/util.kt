@@ -18,7 +18,7 @@ val falkeVehiclesList = listOf(
         description = "fake description"
     ),
     RemoteVehicle(
-        id = 1,
+        id = 2,
         make = "fake maker",
         model = "fake model",
         price = 1000,
@@ -48,5 +48,17 @@ val fakeVehicleDetails = listOf(
         description = falkeVehiclesList[0].description,
         note = fakeVehicleNote[0].note,
         images = falkeVehiclesList[0].images?.map { it.imageUrl }
+    ),
+    VehicleDetails(
+        id = falkeVehiclesList[1].id,
+        make = falkeVehiclesList[1].make,
+        model = falkeVehiclesList[1].model,
+        price = falkeVehiclesList[1].price,
+        firstRegistration = falkeVehiclesList[1].firstRegistration,
+        mileage = falkeVehiclesList[1].mileage,
+        fuel = falkeVehiclesList[1].fuel,
+        description = falkeVehiclesList[1].description,
+        note = null,
+        images = falkeVehiclesList[1].images?.map { it.imageUrl }
     )
 )
