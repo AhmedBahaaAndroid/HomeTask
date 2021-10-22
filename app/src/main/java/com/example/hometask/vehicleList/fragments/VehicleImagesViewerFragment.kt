@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import com.example.hometask.databinding.FrgamentVehicalImagesViewerBinding
 import com.example.hometask.vehicleList.adapters.VehicalmageVeiwerAdapter
 import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer2
@@ -27,15 +26,27 @@ class VehicleImagesViewerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val vehicleImages:List<String> =
-            arguments?.getStringArrayList(VEHICLE_IMAGES_ARG)?.toList() ?: throw IllegalArgumentException ("Argument can't be null")
+        val vehicleImages: List<String> =
+            arguments?.getStringArrayList(VEHICLE_IMAGES_ARG)?.toList()
+                ?: throw IllegalArgumentException("Argument can't be null")
         setupViewPager(vehicleImages)
+        handelClickLisnter()
+    }
+
+    private fun handelClickLisnter() {
+        binding.swipeLeft.setOnClickListener {
+            val nextItem = binding.vehicalImagesViewpager.currentItem - 1
+            binding.vehicalImagesViewpager.currentItem = nextItem
+        }
+        binding.swipeRight.setOnClickListener {
+            val nextItem = binding.vehicalImagesViewpager.currentItem + 1
+            binding.vehicalImagesViewpager.currentItem = nextItem
+        }
     }
 
     private fun setupViewPager(vehicleImages: List<String>) {
         vehicleImagesViewerAdapter = VehicalmageVeiwerAdapter(vehicleImages)
         binding.vehicalImagesViewpager.adapter = vehicleImagesViewerAdapter
-        binding.vehicalImagesViewpager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         val bookFlipPageTransformer = BookFlipPageTransformer2()
         bookFlipPageTransformer.isEnableScale = true
         bookFlipPageTransformer.scaleAmountPercent = 10f
