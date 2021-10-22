@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.CompositePageTransformer
 import com.example.hometask.databinding.FrgamentVehicalImagesViewerBinding
 import com.example.hometask.vehicleList.adapters.VehicalmageVeiwerAdapter
+import com.wajahatkarim3.easyflipviewpager.BookFlipPageTransformer2
+
 
 class VehicleImagesViewerFragment : Fragment() {
     private lateinit var binding: FrgamentVehicalImagesViewerBinding
@@ -35,8 +36,10 @@ class VehicleImagesViewerFragment : Fragment() {
         vehicleImagesViewerAdapter = VehicalmageVeiwerAdapter(vehicleImages)
         binding.vehicalImagesViewpager.adapter = vehicleImagesViewerAdapter
         binding.vehicalImagesViewpager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-        val compositePageTransformer = CompositePageTransformer()
-        binding.vehicalImagesViewpager.setPageTransformer(compositePageTransformer)
+        val bookFlipPageTransformer = BookFlipPageTransformer2()
+        bookFlipPageTransformer.isEnableScale = true
+        bookFlipPageTransformer.scaleAmountPercent = 10f
+        binding.vehicalImagesViewpager.setPageTransformer(bookFlipPageTransformer);
     }
 
     companion object {

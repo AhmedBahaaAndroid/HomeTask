@@ -4,5 +4,5 @@
     <string name="fuelTypeLabel">"Fuel Type:"</string>
     <string name="priceLabel">"Price:"</string>
     <string name="noteLabel">"Notes:"</string>
-
+    <string name="morePhotosLabel">"More photos"</string>
 </resources>

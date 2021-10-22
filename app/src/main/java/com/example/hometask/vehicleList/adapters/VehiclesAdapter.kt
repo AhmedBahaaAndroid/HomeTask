@@ -41,12 +41,19 @@ class VehiclesAdapter(private val clickListener: VehiclesClickListener) :
                 vehicleFuel.text = item.fuelType
                 vehicleName.text = item.title
                 vehiclePrice.text = item.price.toString()
-                if (item.note.isNullOrEmpty()
-                ) {
-                    vehicleNoteLabel.visibility = View.GONE
-                } else {
-                    vehicleNoteLabel.visibility = View.VISIBLE
-                    vehicleNote.text = item.note
+                when {
+                    item.photo.isNullOrEmpty() -> seeMorePhotos.visibility = View.INVISIBLE
+                    else -> seeMorePhotos.visibility = View.VISIBLE
+                }
+                when {
+                    item.note.isNullOrEmpty() -> {
+                        vehicleNoteLabel.visibility = View.GONE
+                        vehicleNote.visibility = View.GONE
+                    }
+                    else -> {
+                        vehicleNoteLabel.visibility = View.VISIBLE
+                        vehicleNote.text = item.note
+                    }
                 }
                 executePendingBindings()
                 root.setOnClickListener {

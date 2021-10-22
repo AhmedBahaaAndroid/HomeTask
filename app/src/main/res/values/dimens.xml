@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<dimen name="space_margin">24dp</dimen>
+	<dimen name="card_padding_bottom">8dp</dimen>
 	<dimen name="text_margin">8dp</dimen>
 	<dimen name="text_top_margin">12dp</dimen>
 	<dimen name="declined_trip_icon_padding">8dp</dimen>
 	<dimen name="title_text_size">28sp</dimen>
 	<dimen name="label_text_size">18sp</dimen>
+	<dimen name="link_text_size">16sp</dimen>
 </resources>
